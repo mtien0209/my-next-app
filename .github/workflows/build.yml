@@ -3,8 +3,5 @@ env:
   NEXT_PUBLIC_BASE_URL: ${{secrets.NEXT_PUBLIC_BASE_URL}}
 
 jobs:
-  # Remove the following section.
-  - name: Generate
-
 # Replace dist with out in the following.
 path: out
