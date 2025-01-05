@@ -1,12 +1,22 @@
-# Add this description above jobs:
 env:
-  NEXT_PUBLIC_BASE_URL: ${{secrets.NEXT_PUBLIC_BASE_URL}}
+  NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
 
 jobs:
-  # Remove the following section.
-  run: npm run build
-  # - name: Zip artifact for upload
-  #  run: cd dist && zip ../dist.zip . -r
+  build:
+    runs-on: ubuntu-latest
 
-# Replace dist with out in the following.
-path: out
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: out
