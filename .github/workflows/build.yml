@@ -105,4 +105,3 @@ jobs:
           webhook_url: "https://minhtien020900.g.kuroco.app/direct/menu/github/"
           webhook_secret: "ecbf0ca41e32e49de429897439ee10b8"
           data: '{"single_zip":"1","domain":"minhtien020900.g.kuroco-front.app","pr":"${{ github.event.issue.pull_request.url }}",  "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ github.sha }}"}'
-path: out
