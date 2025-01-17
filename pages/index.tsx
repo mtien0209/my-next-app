@@ -66,7 +66,7 @@ export default function Home() {
               Read our docs
             </a>
             <a
-            href="https://dev.my.resonus-account.com/login?type=kuroco&site=https://dev-resonus-bi-lab.g.kuroco.app/direct/login/saml_login/?spid=12"
+            href="https://dev.my.resonus-account.com/login?type=kuroco&site=https://minhtien020900.g.kuroco.app/direct/login/saml_login/?spid=3"
              
               target="_blank"
               rel="noopener noreferrer"
