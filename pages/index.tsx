@@ -72,7 +72,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className={styles.secondary}
             >
-              Login test
+              Login test MT
             </a>
             <a
             href="https://dev.my.resonus-account.com/login?type=kuroco&site=https://minhtien020900.g.kuroco.app/direct/login/saml_login/?spid=3"
