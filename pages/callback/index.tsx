@@ -12,7 +12,7 @@ const CallbackPage: React.FC = () => {
       const queryString = new URLSearchParams(query as Record<string, string>).toString();
 
     // Nếu grant_token tồn tại, redirect về localhost kèm grant_token
-    if (grant_token) {
+    if (queryString) {
       router.push(`https://localhost:${redirectPort}?${queryString}`);
     }
   }, [router.query]);
