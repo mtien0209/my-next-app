@@ -8,9 +8,12 @@ const CallbackPage: React.FC = () => {
   useEffect(() => {
     const { grant_token } = router.query;
       const redirectPort = process.env.NEXT_PUBLIC_REDIRECT_PORT || '4040'
+       const query = router.query;
+      const queryString = new URLSearchParams(query as Record<string, string>).toString();
+
     // Nếu grant_token tồn tại, redirect về localhost kèm grant_token
     if (grant_token) {
-      router.push(`https://localhost:${redirectPort}?grant_token=${grant_token}`);
+      router.push(`https://localhost:${redirectPort}?${queryString}`);
     }
   }, [router.query]);
 
