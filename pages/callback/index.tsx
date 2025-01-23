@@ -1,19 +1,23 @@
 // pages/callback.tsx
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const CallbackPage: React.FC = () => {
   const router = useRouter();
+  const [queryString, setQueryString] = useState<string>(''); // Lưu giá trị queryString trong state
 
   useEffect(() => {
-    const { grant_token } = router.query;
-      const redirectPort = process.env.NEXT_PUBLIC_REDIRECT_PORT || '4040'
-       const query = router.query;
-      const queryString = new URLSearchParams(query as Record<string, string>).toString();
+    const query = router.query;
 
-    // Nếu grant_token tồn tại, redirect về localhost kèm grant_token
-    if (queryString) {
-      router.push(`https://localhost:${redirectPort}?${queryString}`);
+    // Chuyển đổi query thành chuỗi query string
+    const queryStringValue = new URLSearchParams(query as Record<string, string>).toString();
+    setQueryString(queryStringValue); // Cập nhật giá trị queryString vào state
+
+    const redirectPort = process.env.NEXT_PUBLIC_REDIRECT_PORT || '4040';
+
+    // Redirect về localhost kèm query string
+    if (queryStringValue) {
+      router.push(`https://localhost:${redirectPort}/?${queryStringValue}`);
     }
   }, [router.query]);
 
@@ -21,6 +25,7 @@ const CallbackPage: React.FC = () => {
     <div>
       <h1>Callback Page</h1>
       <p>Redirecting...</p>
+      <p>Query String: {queryString || 'No query string found'}</p>
     </div>
   );
 };
